@@ -13,6 +13,4 @@ use GuzzleHttp\Client;
 |
 */
 
-
-Route::get('/user','PostController@index');
-Route::get('/posts/{id}','PostController@show');
+Route::resource('/user','UserController');

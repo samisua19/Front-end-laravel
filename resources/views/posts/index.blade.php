@@ -4,9 +4,9 @@
 	<title></title>
 </head>
 <body>
-@foreach($posts as $post)
-<a href="/posts/{{ $post->id }}">
-	{{ $post->name }}
+@foreach($users as $user)
+<a href="/posts/{{ $user->id }}">
+	{{ $user->name }}
 </a>
 
 <br>
