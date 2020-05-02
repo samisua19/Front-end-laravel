@@ -7,8 +7,8 @@
                 <div class="card-header">{{ __('Update User') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user.update',$user) }}">
-                    	@method('PATCH')
+                    <form method="POST" action="{{ route('user.update', $user['id']) }}">
+                    	@method('PUT')
                                 @include('user._form_user',[
                                     'btnText' => 'Update'
                                     ])

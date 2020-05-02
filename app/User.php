@@ -1,30 +1,10 @@
 <?php
 
-/**
- *
- */
-
 namespace App;
 
-class User extends GuzzleHttpRequest
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
 {
-
-	public function all()
-	{
-		//Listar todos los recursos
-		return $this->get('user');
-		# code...
-	}
-
-	// Encontrar un recurso por id
-	public function find($id)
-	{
-
-		// Encontrar un post
-		return $this->get("user/{$id}");
-		# code...
-	}
-
-
-
+    //
 }

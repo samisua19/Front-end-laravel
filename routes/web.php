@@ -13,4 +13,4 @@ use GuzzleHttp\Client;
 |
 */
 
-Route::resource('/user','UserController');
+Route::resource('user','UserController')->names('user')->parameters('user');

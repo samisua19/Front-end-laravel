@@ -31,8 +31,6 @@
                         @include('user._form_user',[
                             'btnText' => 'Register'
                             ])
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>
