@@ -24,14 +24,14 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'identification_card' => 'required|max:10',
+            'identification_card' => 'required|digits_between:5,10|numeric',
             'name' => 'required|max:225',
             'lastname' => 'required|max:225',
             'address' => 'required|max:225',
             'phone_number' => 'required|numeric',
             'city' => 'required|max:225',
             'Country' => 'required|max:225',
-            'date_of_birth' => 'required|date',
+            'date_of_birth' => 'required|date|before:today',
             'gender' => 'required',
             'email' => 'required|max:225|email'
             //
