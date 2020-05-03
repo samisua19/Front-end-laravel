@@ -6,7 +6,7 @@
 		<div class="card-header">
 			<a class="btn btn-primary" href="{{ route('user.create') }}"> {{ __('Create User') }} </a>
 		</div>
-		<div class="card-body">
+		<div class="card-body ">
 			@include('user.cards._user_card',[ 'users' => $users])
 		</div>
 	</div>

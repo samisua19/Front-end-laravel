@@ -48,7 +48,7 @@
     <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date of birth') }}</label>
 
     <div class="col-md-6">
-        <input id="date_of_birth" type="text" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth',$user['date_of_birth']) }}" required autocomplete="date_of_birth">
+        <input id="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth',$user['date_of_birth']) }}" required autocomplete="date_of_birth">
 
         @error('date_of_birth')
         <span class="invalid-feedback" role="alert">
@@ -97,7 +97,7 @@
     <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Phone number') }}</label>
 
     <div class="col-md-6">
-        <input id="phone_number" type="number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number',$user['phone_number']) }}" required autocomplete="phone_number">
+        <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number',$user['phone_number']) }}" required autocomplete="phone_number">
 
         @error('phone_number')
         <span class="invalid-feedback" role="alert">

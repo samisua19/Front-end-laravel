@@ -6,6 +6,8 @@ use App\User;
 use App\HttpModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\CreateUserRequest;
 
 class UserController extends Controller
 {
@@ -49,9 +51,11 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-         $data = array(
+        // valida los parametros enviados por el request, si no los cumple, interrumpe la solicitud
+        $request->validated();
+        $data = array(
             'identification_card' => $request->input('identification_card'),
             'name' => $request->input('name'),
             'lastname' => $request->input('lastname'),
@@ -103,8 +107,10 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
+         // valida los parametros enviados por el request, si no los cumple, interrumpe la solicitud
+        $request->validated();
         $data = array('id' => $request->input('id'),
             'identification_card' => $request->input('identification_card'),
             'name' => $request->input('name'),
