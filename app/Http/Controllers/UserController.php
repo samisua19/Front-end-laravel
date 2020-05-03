@@ -3,26 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\HttpModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
 
-    protected $url = 'http://localhost:8085/user';
+    protected $url = 'user';
+
+    protected $user;
+    protected $httpModel;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    function __construct(User $user)
+    public function __construct(User $user,HttpModel $httpModel)
     {
         $this->user = $user;
+        $this->httpModel = $httpModel;
     }
+
     public function index()
     {
-        $response = Http::withHeaders(['Content-Type' => 'application/json'])->get($this->url);
-        $users = json_decode($response,true);
+        $users = $this->httpModel->get($this->url);
         return view('user.index', [ 'users' => $users , 'user' => $this->user]);
         //
     }
@@ -34,7 +39,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create',[ 'user' => new User ]);
+        return view('user.create',[ 'user' => $this->user ]);
         //
     }
 
@@ -58,7 +63,7 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'gender' => $request->input('gender'),
             'password' => $request->input('password') );
-        $response = Http::withHeaders(['Content-Type' => 'application/json'])->post("{$this->url}",$data);
+        $response = Http::asJson()->post("{$this->url}",$data);
         $this->user = json_decode($response,true);
         return view('user.show',[ 'user' => $this->user]);
 
@@ -73,8 +78,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $response = Http::withHeaders(['Content-Type' => 'application/json'])->get("{$this->url}/{$id}");
-        $this->user = json_decode($response,true);
+
+        $this->user = $this->httpModel->get("{$this->url}/{$id}");
         return view('user.show', ['user' => $this->user]);
         //
     }
@@ -87,8 +92,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $response = Http::withHeaders(['Content-Type' => 'application/json'])->get("{$this->url}/{$id}");
-        $this->user = json_decode($response,true);
+        $this->user = $this->httpModel->get("{$this->url}/{$id}");
         return view('user.edit', ['user' => $this->user]);
         //
     }
@@ -113,8 +117,7 @@ class UserController extends Controller
             'Country' => $request->input('Country'),
             'email' => $request->input('email'),
             'gender' => $request->input('gender') );
-        $response = Http::withHeaders(['Content-Type' => 'application/json'])->patch("{$this->url}/{$id}",$data);
-        $this->user = json_decode($response,true);
+        $this->user =  $this->httpModel->patch("{$this->url}/{$id}",$data);
         return view('user.show', ['user' => $this->user]);
         //
     }
@@ -126,8 +129,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::withHeaders(['Content-Type' => 'application/json'])->delete("{$this->url}/{$id}");
-        return $response;
+        $this->httpModel->deletes("{$this->url}/{$id}");
+        return $this->index();
         //
     }
 }
