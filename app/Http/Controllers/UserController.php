@@ -63,8 +63,7 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'gender' => $request->input('gender'),
             'password' => $request->input('password') );
-        $response = Http::asJson()->post("{$this->url}",$data);
-        $this->user = json_decode($response,true);
+        $this->user = $this->httpModel->post("{$this->url}",$data);
         return view('user.show',[ 'user' => $this->user]);
 
         //

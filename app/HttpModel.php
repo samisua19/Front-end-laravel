@@ -18,6 +18,13 @@ class HttpModel extends Model
 	}
 
 	// Funcion para metodo PATCH HTTP
+	public function post($url,$data = [])
+	{
+		$response = Http::asJson()->post($this->url.$url,$data);
+  		return json_decode($response,true);
+		# code...
+	}
+	// Funcion para metodo PATCH HTTP
 	public function patch($url,$data = [])
 	{
 		$response = Http::asJson()->patch($this->url.$url,$data);

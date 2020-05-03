@@ -17,7 +17,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Utiliza el patron de diseño singleton
+        $this->app->singleton('App\User', function ()
+        {
+            return new User();
+            # code...
+        });
 
+
+        $this->app->singleton('App\HttpModel', function ()
+        {
+            return new HttpModel();
+        });
 
 
 
