@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\CreateUserRequest;
+use Illuminate\Pagination\Paginator;
 
 class UserController extends Controller
 {
@@ -24,13 +25,17 @@ class UserController extends Controller
     public function __construct(User $user,HttpModel $httpModel)
     {
         $this->user = $user;
+        $this->users = $user;
         $this->httpModel = $httpModel;
     }
 
     public function index()
     {
-        $users = $this->httpModel->get($this->url);
-        return view('user.index', [ 'users' => $users , 'user' => $this->user]);
+
+        //return User::paginate();
+
+        $this->users = $this->httpModel->get($this->url);
+        return view('user.index', [ 'users' => $this->users, 'user' => $this->user]);
         //
     }
 

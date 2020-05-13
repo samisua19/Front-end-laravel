@@ -24,7 +24,7 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'identification_card' => 'required|size:10|unique:App\User,identification_card|numeric',
+            'identification_card' => 'required|digits_between:5,10|numeric',
             'name' => 'required|max:225',
             'lastname' => 'required|max:225',
             'address' => 'required|max:225',

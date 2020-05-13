@@ -1,6 +1,6 @@
 
 <div class="row row-cols-1 row-cols-md-4">
-	@foreach($users as $user)
+	@forelse($users['data'] as $user)
  <div class="col mb-4">
   <div class="card">
    <a href="{{ route('user.show',$user['id']) }}"><img src="https://img.icons8.com/officel/2x/user.png" class="card-img-top" alt="..."></a>
@@ -25,5 +25,8 @@
 </div>
 </div>
 </div>
-@endforeach
+
+@empty
+  <h5>No hay usuarios registrados</h5>
+@endforelse
 </div>
