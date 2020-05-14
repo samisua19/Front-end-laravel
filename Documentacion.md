@@ -6,11 +6,12 @@ El objetivo del presente proyecto es presentar una aplicación web que, a travé
 # Tecnologias usadaas
 
 En el proyecto se emplearan las siguientes tecnologías
--Laravel/Lumen
--Vue.js
--Docker
--Mysql
--Guzzle
+
+- Laravel/Lumen
+- Vue.js
+- Docker
+- Mysql
+- Guzzle
 
 ## Avances importantes
 
