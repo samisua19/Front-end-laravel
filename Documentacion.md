@@ -2,8 +2,7 @@
 
 El objetivo del presente proyecto es presentar una aplicación web que, a través de microservicios, pueda crear, consultar, editar y eliminar usuarios de una base de datos. El proyecto se entregara en 3 avances principales, el tercer y ultimo avance será una aplicación modular que se ejecute en contenedores de docker y así facilitar la administración de dichos módulos
 
-![CRUD].(image/crud.png)
-
+![crud](image/CRUD.PNG)
 # Tecnologias usadaas
 
 En el proyecto se emplearan las siguientes tecnologías
@@ -29,9 +28,12 @@ Inicialmente la aplicación contaba con el back-end y front-end en el mismo arch
 ### Interfaz de usuario
 
 Para hacer mas estilizadas las se realizaron cambios importantes en las vistas de *Consulta de usuarios*
-![CRUD].(image/crud.png)
+
+![CRUD](image/CRUD.PNG)
+
 Tambien se modifico la vista del *perfil de usuario*
-![cardUser].(image/tarjetaUser.png)
+
+![cardUser](image/tarjetaUser.PNG)
 
 ### Guzzle
 Guzzle es un cliente HTTP PHP que facilita el envío de solicitudes HTTP y trivial de integrar con servicios web.
@@ -41,7 +43,9 @@ Guzzle es un cliente HTTP PHP que facilita el envío de solicitudes HTTP y trivi
 -   Utiliza interfaces PSR-7 para solicitudes, respuestas y secuencias. Esto le permite utilizar otras bibliotecas compatibles con PSR-7 con Guzzle.
 -   Abstrae el transporte HTTP subyacente, lo que le permite escribir código agnóstico de entorno y transporte; es decir, no hay dependencia dura de cURL, secuencias PHP, sockets o bucles de eventos sin bloqueo.
 -   El sistema de middleware le permite aumentar y componer el comportamiento del cliente.
-![guzzle].(image/usoHttp.png)
+
+
+![guzzle](image/conexionApi.PNG)
 
 
 ### Laradock
@@ -75,7 +79,8 @@ imagen
 ### Controladores
 
 Se realizo optimizacion de codigo en el controlador de usuarios, con el fin de que fuera compatible con una aplicacion modular y Guzzle
-![controlador].(image/Captura.png)
+
+![controlador](image/Captura.PNG)
 
 ## Progreso de Desarrollo
 
