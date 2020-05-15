@@ -7,10 +7,12 @@
     <div class="row">
         <div class="col-md-4">
             <div class="profile-img">
-                <img src="https://img.icons8.com/officel/2x/user.png" class="card-img" alt="" width="100" height="100"/>
-                <div class="file btn btn-lg btn-primary">
-                    Change Photo
-                    <input type="file" name="file"/>
+                <div class="row">
+                    <img src="{{ Storage::url($user['profile_picture'])}}" class="card-img" width="400px" height="400px" />
+                    <div class="file btn btn-lg btn-primary">
+                        {{__('Change Photo')}}
+                        <input type="file" name="file"/>
+                    </div>
                 </div>
             </div>
         </div>
@@ -22,7 +24,7 @@
                             {{ $user['name']." ".$user['lastname'] }}
                         </h5>
                         <h6>
-                            Web Developer and Designer
+                            {{__('Web Developer and Designer')}}
                         </h6>
                     <!--
                     <p class="proile-rating">RANKINGS : <span>8/10</span></p>

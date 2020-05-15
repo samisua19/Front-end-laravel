@@ -60,6 +60,7 @@ class UserController extends Controller
     {
         // valida los parametros enviados por el request, si no los cumple, interrumpe la solicitud
         $request->validated();
+        $urlImage =  $request->file('profile_picture')->store('public/ProfilePicture');
         $data = array(
             'identification_card' => $request->input('identification_card'),
             'name' => $request->input('name'),
@@ -71,7 +72,8 @@ class UserController extends Controller
             'Country' => $request->input('Country'),
             'email' => $request->input('email'),
             'gender' => $request->input('gender'),
-            'password' => $request->input('password') );
+            'password' => $request->input('password'),
+            'profile_picture' => $urlImage );
         $this->user = $this->httpModel->post("{$this->url}",$data);
         return view('user.show',[ 'user' => $this->user]);
 
@@ -116,6 +118,7 @@ class UserController extends Controller
     {
          // valida los parametros enviados por el request, si no los cumple, interrumpe la solicitud
         $request->validated();
+        $urlImage =  $request->file('profile_picture')->store('public/ProfilePicture');
         $data = array('id' => $request->input('id'),
             'identification_card' => $request->input('identification_card'),
             'name' => $request->input('name'),
@@ -126,7 +129,8 @@ class UserController extends Controller
             'city' => $request->input('city'),
             'Country' => $request->input('Country'),
             'email' => $request->input('email'),
-            'gender' => $request->input('gender') );
+            'gender' => $request->input('gender'),
+            'profile_picture' => $urlImage );
         $this->user =  $this->httpModel->patch("{$this->url}/{$id}",$data);
         return view('user.show', ['user' => $this->user]);
         //

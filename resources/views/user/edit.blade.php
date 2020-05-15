@@ -7,7 +7,7 @@
                 <div class="card-header">{{ __('Update User') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user.update', $user['id']) }}">
+                    <form method="POST" action="{{ route('user.update', $user['id']) }}" enctype="multipart/form-data">
                     	@method('PUT')
                                 @include('user._form_user',[
                                     'btnText' => 'Update'

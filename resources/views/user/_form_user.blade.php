@@ -6,6 +6,19 @@
     </div>
 </div>
 <div class="form-group row">
+    <label for="profile_picture" class="col-md-4 col-form-label text-md-right">{{ __('Profile Picture') }}</label>
+
+    <div class="col-md-6">
+        <input id="profile_picture" type="file" class="form-control @error('profile_picture') is-invalid @enderror" name="profile_picture"  required autocomplete="profile_picture" autofocus>
+
+        @error('profile_picture')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+</div>
+<div class="form-group row">
     <label for="identification_card" class="col-md-4 col-form-label text-md-right">{{ __('Identification card') }}</label>
 
     <div class="col-md-6">
