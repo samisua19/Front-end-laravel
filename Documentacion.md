@@ -68,14 +68,19 @@ Ejecute sus contenedores:
 ```shell
 docker-compose up -d nginx mysql
 ```
-De ser necesario cambiar los puertos de *nginx* y *mysql* en el archivo punto *.env* de la carpeta **Laradock*
-Imagenes
-Al tener varios proyectos para ejecutar, se debe realizar el cambio de prefijo de los contenedores en  el archivo punto *.env* de la carpeta **Laradock*
-Imagen
+De ser necesario cambiar los puertos de *nginx* y *mysql* en el archivo punto *.env* de la carpeta **Laradock**
+![server](image/NginxEnv.PNG)
+Al tener varios proyectos para ejecutar, se debe realizar el cambio de prefijo de los contenedores en  el archivo punto *.env* de la carpeta **Laradock**
+![prefix](image/DefPreApp.PNG)
+
+Configuracion variables de entorno **Laradock**
+
+![env](image/ConfigEnv.PNG)
+
 ### Patrones de diseño
 
-Laravel permite utilizar el patron de diseño singleton, esta configuracion debe hacerse en el archivo **AppServiceProvider** en la ruta *app\providers\*
-imagen
+Laravel permite utilizar el patron de diseño singleton, esta configuracion debe hacerse en el archivo **AppServiceProvider** en la ruta * app\providers\ *
+![patronDiseño](image/patronesDiseño.PNG)
 
 ### Controladores
 

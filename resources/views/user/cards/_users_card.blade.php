@@ -1,6 +1,6 @@
 <div class="row row-cols-1 row-cols-md-4">
-	@forelse($users['data'] as $user)
- <div class="col mb-4">
+@forelse($users['data'] as $user)
+<div class="col mb-4">
   <div class="card" >
    <a href="{{ route('user.show',$user['id']) }}">
     <img src="{{ Storage::url($user['profile_picture'])}}" class="card-img-top" style=" height: 200px; " />
@@ -23,11 +23,9 @@
     {{ __('Delete') }}
   </button>
 </form>
-
 </div>
 </div>
 </div>
-
 @empty
 <h5>No hay usuarios registrados</h5>
 @endforelse
