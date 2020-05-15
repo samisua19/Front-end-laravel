@@ -5,11 +5,10 @@
   <div class="card">
    <a href="{{ route('user.show',$user['id']) }}"><img src="https://img.icons8.com/officel/2x/user.png" class="card-img-top" alt="..."></a>
    <div class="card-body">
-    <h5 class="card-title">{{ $user['name'] }}</h5>
+    <h5 class="card-title text-left">{{ $user['name'] }}</h5>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+      <li class="list-group-item text-left">{{ __('Gender: ').$user['gender'] }}</li>
+      <li class="list-group-item text-left">{{ __('Country: ').$user['Country'] }}</li>
     </ul>
   </div>
   <div class="card-footer text-center">
