@@ -2,7 +2,7 @@
 
 El objetivo del presente proyecto es presentar una aplicación web que, a través de microservicios, pueda crear, consultar, editar y eliminar usuarios de una base de datos. El proyecto se entregara en 3 avances principales, el tercer y ultimo avance será una aplicación modular que se ejecute en contenedores de docker y así facilitar la administración de dichos módulos
 
-![crud](image/CRUD.PNG)
+![crud](image/CRUD2.PNG)
 # Tecnologias usadaas
 
 En el proyecto se emplearan las siguientes tecnologías
@@ -30,11 +30,11 @@ Inicialmente la aplicación contaba con el back-end y front-end en el mismo arch
 
 Para hacer mas estilizadas las se realizaron cambios importantes en las vistas de *Consulta de usuarios*
 
-![CRUD](image/CRUD.PNG)
+![CRUD](image/CRUD2.PNG)
 
 Tambien se modifico la vista del *perfil de usuario*
 
-![cardUser](image/tarjetaUser.PNG)
+![cardUser](image/user.PNG)
 
 ### Guzzle
 Guzzle es un cliente HTTP PHP que facilita el envío de solicitudes HTTP y trivial de integrar con servicios web.
@@ -85,7 +85,7 @@ Configuracion variables de entorno **Laradock**
 
 ### Patrones de diseño
 
-Laravel permite utilizar el patron de diseño singleton, esta configuracion debe hacerse en el archivo **AppServiceProvider** 
+Laravel permite utilizar el patron de diseño singleton, esta configuracion debe hacerse en el archivo **AppServiceProvider**
 
 ![patronDiseño](image/patronesDiseño.PNG)
 
@@ -115,4 +115,46 @@ Se realizo optimizacion de codigo en el controlador de usuarios, con el fin de q
 |  Back End|10|
 |  Base de Datos|2 |
 
+## Tercera Entrega
 
+### Estructuras de Datos
+
+![class](image/class.png)
+![bd](image/bd.png)
+
+### Patrón de diseño Singleton
+
+Es un patrón de diseño cuya función es instanciar un único objeto de una clase para garantizar acceso global a ella. En otras palabras, restringe la creación de objetos de una clase a uno solo.
+
+- Reducir el espacio.
+- Controla el acceso a la instancia única.
+- Reduce el número de variables.
+- Permite cambiar el número de instancias.
+
+El patrón Singleton se uso para la clase user en la API y, en el front-end, se utilizó para instanciar la clase la clase HttpModel y user, su aplicación se encuentra en ambos casos en la ruta app/Providers/AppServiceProviders.php
+
+### Herramientas necesarias para la ejecución del proyecto
+
+
+- Docker
+- Php 7.3 o superior
+- Laragon
+
+Modular:
+- Iniciar Docker
+- En la ruta lumen_project/.env cambiar las variables de entorno de mysql
+![.env](image/envi.png)
+- Abrir una terminal en la carpeta laradock dentro de laragon/www
+- Ejecutar el comando docker-compose.yml up -d nginx mysql
+- Abrir terminal en la carpeta Api-Guzzle y ejecutar el comando php -S localhost:8000 -t public
+- Abrir el navegador en “localhost:8000/user”.
+
+## Estimación de tiempo
+
+
+|Tecnología| Tiempo (H) |
+|--|--|
+|  Docker|22  |
+|  Front End|25  |
+|  Back End|16|
+|  Base de Datos|4 |
